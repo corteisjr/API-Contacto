@@ -12,6 +12,16 @@ class Contact(BaseModel):
     last_name: str
     user_name: str
     password: str
+    
+    class Config:
+        schema_extra = {
+        "example": {
+            "contact_id": 1,
+            "first_name": "Jhon",
+            "last_name": "Doe",
+            "user_name": "Jhon_123"
+        }
+    }
 
 class ContactOut(BaseModel):
     contact_id: int
@@ -19,6 +29,8 @@ class ContactOut(BaseModel):
     last_name: str
     user_name: str
     password: str
+    
+
 
 @app.get("/")
 def home():
